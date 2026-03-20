@@ -6,80 +6,63 @@
     <title>Dynasty 8 | Chase Walton Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dorado: #d4bc3b;
-            --negro-mate: #121212;
-            --blanco-puro: #ffffff;
-            --discord-blurple: #5865F2;
-        }
+        :root { --dorado: #d4bc3b; --negro: #121212; --blanco: #ffffff; --discord: #5865F2; --gris-f: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--gris-f); color: var(--negro); line-height: 1.6; overflow-x: hidden; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--blanco-puro); color: var(--negro-mate); scroll-behavior: smooth; }
-
-        /* Navegación Estilo Corporativo */
-        nav {
-            background: var(--negro-mate);
-            border-bottom: 4px solid var(--dorado);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-txt { font-family: 'Oswald', sans-serif; color: white; font-size: 1.8rem; letter-spacing: 2px; }
+        /* NAVEGACIÓN */
+        nav { background: var(--negro); border-bottom: 4px solid var(--dorado); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo-txt { font-family: 'Oswald', sans-serif; color: white; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
         .logo-txt span { color: var(--dorado); }
-        
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
         nav ul li a:hover { color: var(--dorado); }
 
-        /* Hero: Visión Chase Walton */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1470');
-            background-size: cover;
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; margin-bottom: 10px; }
-        .hero p { color: var(--dorado); font-size: 1.1rem; letter-spacing: 3px; font-weight: 300; text-transform: uppercase; }
+        /* HERO */
+        .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400'); background-size: cover; background-position: center; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; margin-bottom: 10px; border-bottom: 4px solid var(--dorado); padding-bottom: 5px; }
+        .hero p { color: var(--dorado); font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 300; }
 
-        /* Sección de Pilares (Tu Presentación) */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 5%; background: #f9f9f9; margin-top: -50px; width: 90%; margin-left: auto; margin-right: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .feature-item { text-align: center; padding: 20px; }
-        .feature-item h3 { font-family: 'Oswald', sans-serif; color: var(--negro-mate); margin-bottom: 10px; font-size: 1.2rem; }
-        .feature-item p { font-size: 0.85rem; color: #666; }
-
-        /* Catálogo Inmobiliario */
-        .container { padding: 60px 5%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-transform: uppercase; }
-        .section-header .line { width: 60px; height: 4px; background: var(--dorado); margin: 15px auto; }
-
-        .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        .property-card { border: 1px solid #eee; border-radius: 15px; overflow: hidden; background: white; transition: 0.4s; position: relative; }
-        .property-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        /* GRID DE PROPIEDADES */
+        .container { padding: 60px 5%; max-width: 1300px; margin: auto; }
+        .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 40px; text-transform: uppercase; }
+        .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
         
-        .property-img { width: 100%; height: 240px; object-fit: cover; }
-        .vpo-tag { position: absolute; top: 15px; right: 15px; background: var(--dorado); color: black; padding: 6px 15px; font-weight: bold; border-radius: 5px; font-size: 0.75rem; font-family: 'Oswald', sans-serif; }
+        .card { background: white; border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.4s; border: 1px solid #ddd; position: relative; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .card img { width: 100%; height: 240px; object-fit: cover; }
+        .card-body { padding: 25px; }
+        .card-body .tag { background: var(--negro); color: var(--dorado); padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
+        .card-body h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 10px; color: var(--negro); }
+        .price-total { color: var(--dorado); font-weight: bold; font-size: 1.4rem; font-family: 'Oswald', sans-serif; }
+
+        /* MODAL DE DETALLES */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
+        .modal-content { background: white; max-width: 1000px; margin: 20px auto; border-radius: 15px; overflow: hidden; position: relative; animation: slideIn 0.3s; }
+        @keyframes slideIn { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-modal { position: absolute; top: 20px; right: 25px; color: white; font-size: 40px; cursor: pointer; z-index: 3000; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+        /* CARRUSEL MODAL */
+        .carousel { width: 100%; height: 500px; position: relative; background: #000; }
+        .carousel img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .carousel img.active { display: block; }
+        .car-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; padding: 20px; cursor: pointer; font-size: 1.5rem; transition: 0.3s; }
+        .car-btn:hover { background: var(--dorado); color: black; }
+        .btn-next { right: 0; }
+
+        /* DESGLOSE E INFO */
+        .details-container { padding: 40px; }
+        .details-container h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 15px; color: var(--negro); border-bottom: 4px solid var(--dorado); display: inline-block; }
+        .desc-text { color: #555; margin-bottom: 30px; font-size: 1.1rem; }
         
-        .property-info { padding: 25px; }
-        .property-info .status { font-size: 0.7rem; font-weight: bold; color: #999; text-transform: uppercase; letter-spacing: 1px; }
-        .property-info h3 { margin: 5px 0 15px; font-size: 1.4rem; font-family: 'Oswald', sans-serif; }
-        .property-info .price { font-size: 1.6rem; color: var(--dorado); font-weight: bold; font-family: 'Oswald', sans-serif; border-top: 1px solid #eee; padding-top: 15px; }
+        .tax-table { background: var(--gris-f); padding: 25px; border-radius: 10px; border-left: 6px solid var(--dorado); margin-bottom: 30px; }
+        .tax-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; font-size: 1rem; }
+        .tax-row.total { border-bottom: none; color: var(--dorado); font-weight: bold; font-size: 1.8rem; font-family: 'Oswald', sans-serif; padding-top: 20px; }
 
-        /* Botón de Ticket System (Discord) */
-        .ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--discord-blurple); color: white; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3); z-index: 2000; transition: 0.3s; font-size: 0.9rem; }
-        .ticket-btn:hover { background: #4752c4; transform: scale(1.05); }
+        .discord-action { display: block; text-align: center; background: var(--discord); color: white; padding: 20px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; font-size: 1.1rem; }
+        .discord-action:hover { background: #4752c4; transform: scale(1.02); }
 
-        footer { background: var(--negro-mate); color: #444; text-align: center; padding: 50px; border-top: 5px solid var(--dorado); margin-top: 50px; }
+        footer { background: var(--negro); color: #666; text-align: center; padding: 50px; margin-top: 60px; border-top: 4px solid var(--dorado); }
     </style>
 </head>
 <body>
@@ -87,107 +70,142 @@
     <nav>
         <div class="logo-txt">DYNASTY <span>8</span></div>
         <ul>
-            <li><a href="#vision">Visión</a></li>
-            <li><a href="#propiedades">Propiedades</a></li>
-            <li><a href="#vpo">Programa Social</a></li>
-            <li><a href="#contacto">Ticket System</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#vision">Nuestra Ética</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1 id="dyn-name">Dynasty 8</h1>
-        <p id="dyn-slogan">Ética · Transparencia · Profesionalismo</p>
+        <h1>DYNASTY 8</h1>
+        <p>CHASE WALTON | ASESORÍA INMOBILIARIA</p>
     </header>
 
-    <section class="features" id="vision">
-        <div class="feature-item">
-            <h3>TASACIÓN DINÁMICA</h3>
-            <p>Valoraciones reales basadas en mercado, ubicación y estado de reforma.</p>
-        </div>
-        <div class="feature-item" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
-            <h3>PROGRAMA SOCIAL</h3>
-            <p>Acceso prioritario a viviendas VPO para nuevos ciudadanos de la ciudad.</p>
-        </div>
-        <div class="feature-item">
-            <h3>ÉTICA CORPORATIVA</h3>
-            <p>Tolerancia cero a la corrupción y protocolos de transparencia total.</p>
-        </div>
-    </section>
-
-    <main class="container" id="propiedades">
-        <div class="section-header">
-            <h2>Inventario de Propiedades</h2>
-            <div class="line"></div>
-        </div>
-        
-        <div class="property-grid" id="grid-inmuebles">
+    <main class="container" id="catalogo">
+        <h2 class="section-title">Propiedades Disponibles</h2>
+        <div class="property-grid" id="main-grid">
             </div>
     </main>
 
-    <a href="#" id="discord-link" class="ticket-btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="25" alt="Discord">
-        ABRIR TICKET DE ASISTENCIA
-    </a>
+    <div id="propModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modal-content-area"></div>
+    </div>
 
     <footer>
-        <p>CHASE WALTON | PROYECTO DYNASTY 8</p>
-        <p style="margin-top:10px; font-size: 0.7rem;">&copy; 2026 LOS SANTOS REAL ESTATE SOLUTIONS</p>
+        <p>&copy; 2026 Dynasty 8 Los Santos - Transparencia y Auditoría Garantizada</p>
     </footer>
 
     <script>
-        /* PANEL DE CONFIGURACIÓN PERSONALIZABLE
-           Edita los datos aquí para actualizar tu web al instante.
+        /* PANEL DE CONTROL PROFESIONAL
+           Añade o quita casas aquí. Todo se actualizará solo.
         */
-
-        const INFO_GENERAL = {
-            nombre: "DYNASTY 8",
-            lema: "ASESORÍA INMOBILIARIA INTEGRAL",
-            discordUrl: "https://discord.gg/TU_LINK" // Pega aquí tu invitación
-        };
-
         const PROPIEDADES = [
             {
-                titulo: "Mansión en Rockford Hills",
-                tipo: "VENTA",
-                precio: "2.450.000 €",
-                imagen: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
-                vpo: false
+                id: 1,
+                nombre: "Mansión Eclipse Towers",
+                descripcion: "Lujo vertical en el corazón de la ciudad. Penthouse completamente reformado con materiales de alta gama, domótica integrada y seguridad privada 24/7. Incluye plaza de garaje triple.",
+                estado: "VENTA",
+                precioBase: 1500000,
+                impuestos: 120000, // 8% aprox
+                comision: 45000,  // 3% aprox
+                fotos: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000",
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000",
+                    "https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?w=1000"
+                ]
             },
             {
-                titulo: "Apartamento Del Perro Pier",
-                tipo: "ALQUILER",
-                precio: "2.100 € / mes",
-                imagen: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600",
-                vpo: false
+                id: 2,
+                nombre: "Villa Moderna en Rockford Hills",
+                descripcion: "Arquitectura vanguardista con amplios ventanales. Jardín con piscina infinita y zona de BBQ profesional. Ideal para quienes buscan exclusividad y discreción.",
+                estado: "ALQUILER OPC. COMPRA",
+                precioBase: 2800000,
+                impuestos: 224000,
+                comision: 84000,
+                fotos: [
+                    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1000",
+                    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1000"
+                ]
             },
             {
-                titulo: "Vivienda Protegida Sur",
-                tipo: "VPO",
-                precio: "115.000 €",
-                imagen: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600",
-                vpo: true
+                id: 3,
+                nombre: "Residencial Social (VPO)",
+                descripcion: "Parte del Programa Social Chase Walton. Vivienda digna y accesible para nuevos ciudadanos o personas en situación de vulnerabilidad. Requisitos de renta aplicables.",
+                estado: "VPO",
+                precioBase: 125000,
+                impuestos: 5000,
+                comision: 0,
+                fotos: [
+                    "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1000",
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000"
+                ]
             }
         ];
 
-        /* LÓGICA DE CARGA (NO TOCAR) */
-        document.getElementById('dyn-name').innerText = INFO_GENERAL.nombre;
-        document.getElementById('dyn-slogan').innerText = INFO_GENERAL.lema;
-        document.getElementById('discord-link').href = INFO_GENERAL.discordUrl;
-
-        const grid = document.getElementById('grid-inmuebles');
+        // RENDERIZAR GRID
+        const grid = document.getElementById('main-grid');
         PROPIEDADES.forEach(p => {
+            const final = p.precioBase + p.impuestos + p.comision;
             grid.innerHTML += `
-                <div class="property-card">
-                    ${p.vpo ? '<div class="vpo-tag">PLAN VPO</div>' : ''}
-                    <img src="${p.imagen}" class="property-img">
-                    <div class="property-info">
-                        <span class="status">${p.tipo}</span>
-                        <h3>${p.titulo}</h3>
-                        <p class="price">${p.precio}</p>
+                <div class="card" onclick="openModal(${p.id})">
+                    <img src="${p.fotos[0]}" alt="${p.nombre}">
+                    <div class="card-body">
+                        <span class="tag">${p.estado}</span>
+                        <h3>${p.nombre}</h3>
+                        <p class="price-total">${final.toLocaleString()} €</p>
+                        <p style="margin-top:10px; font-size:0.8rem; color:#d4bc3b; font-weight:bold;">VER DETALLES Y TASACIÓN →</p>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
+
+        // FUNCIONES MODAL
+        let imgIndex = 0;
+
+        function openModal(id) {
+            const p = PROPIEDADES.find(i => i.id === id);
+            imgIndex = 0;
+            const final = p.precioBase + p.impuestos + p.comision;
+
+            const html = `
+                <div class="carousel">
+                    ${p.fotos.map((f, i) => `<img src="${f}" class="car-img ${i === 0 ? 'active' : ''}">`).join('')}
+                    <button class="car-btn btn-prev" onclick="moveImg(-1)">&#10094;</button>
+                    <button class="car-btn btn-next" onclick="moveImg(1)">&#10095;</button>
+                </div>
+                <div class="details-container">
+                    <h2>${p.nombre}</h2>
+                    <p class="desc-text">${p.descripcion}</p>
+                    
+                    <div class="tax-table">
+                        <div class="tax-row"><span>Precio de Tasación Base:</span> <span>${p.precioBase.toLocaleString()} €</span></div>
+                        <div class="tax-row"><span>Impuestos de Transmisión (IVC):</span> <span>${p.impuestos.toLocaleString()} €</span></div>
+                        <div class="tax-row"><span>Honorarios Dynasty 8:</span> <span>${p.comision.toLocaleString()} €</span></div>
+                        <div class="tax-row total"><span>PRECIO FINAL LLAVE EN MANO:</span> <span>${final.toLocaleString()} €</span></div>
+                    </div>
+
+                    <a href="https://discord.gg/TU_LINK" class="discord-action" target="_blank">
+                        SOLICITAR TICKET DE VISITA (DISCORD)
+                    </a>
+                </div>`;
+
+            document.getElementById('modal-content-area').innerHTML = html;
+            document.getElementById('propModal').style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            document.getElementById('propModal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function moveImg(step) {
+            const images = document.querySelectorAll('.car-img');
+            images[imgIndex].classList.remove('active');
+            imgIndex = (imgIndex + step + images.length) % images.length;
+            images[imgIndex].classList.add('active');
+        }
+
+        window.onclick = function(e) { if(e.target == document.getElementById('propModal')) closeModal(); }
     </script>
 </body>
 </html>
