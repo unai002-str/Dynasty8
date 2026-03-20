@@ -3,230 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynasty 8 | Inmobiliaria Profesional</title>
+    <title>Dynasty 8 | Inmobiliaria</title>
     <style>
-        /* Estilos basados en tu logo */
-        :root {
-            --dorado: #d4bc3b; /* El tono de tu logo */
-            --negro: #000000;
-            --blanco: #ffffff;
-            --gris-suave: #f4f4f4;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--blanco);
-            color: var(--negro);
-        }
-
-        /* Navegación */
-        nav {
-            background-color: var(--negro);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--dorado);
-        }
-
-        .logo {
-            color: var(--blanco);
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .logo span { color: var(--dorado); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
+        :root { --dorado: #d4bc3b; --negro: #000000; --blanco: #ffffff; --discord: #5865F2; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--blanco); color: var(--negro); }
+        nav { background: var(--negro); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--dorado); }
+        .logo-txt { color: white; font-size: 1.5rem; font-weight: bold; }
+        .logo-txt span { color: var(--dorado); }
+        nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 20px; }
-
-        nav ul li a {
-            color: var(--blanco);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover { color: var(--dorado); }
-
-        /* Hero / Portada */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--blanco);
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: var(--dorado); }
-
-        /* Secciones de Propiedades */
-        .container {
-            padding: 50px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--dorado);
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            position: relative;
-        }
-
-        .grid-propiedades {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
+        nav ul li a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400'); background-size: cover; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        .container { padding: 50px 5%; }
+        h2 { text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .card { border: 1px solid #eee; border-radius: 10px; overflow: hidden; transition: 0.3s; background: white; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        .card-img {
-            height: 200px;
-            background-color: #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-
-        .card-info { padding: 15px; }
-        .tag {
-            background: var(--dorado);
-            color: black;
-            padding: 2px 8px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-
-        /* Agentes */
-        .agentes-section { background-color: var(--gris-suave); padding: 50px 5%; }
-        
-        .agente-card {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            border: 3px solid var(--dorado);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        footer {
-            background: var(--negro);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-        }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-body { padding: 15px; }
+        .tag { background: var(--negro); color: var(--dorado); padding: 3px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold; }
+        .precio { color: var(--dorado); font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
+        .btn-discord { position: fixed; bottom: 20px; right: 20px; background: var(--discord); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 999; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .agente-item { text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; border-top: 3px solid var(--dorado); }
+        footer { background: var(--negro); color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">DYNASTY <span>8</span></div>
-        <ul>
-            <li><a href="#venta">Venta</a></li>
-            <li><a href="#alquiler">Alquiler</a></li>
-            <li><a href="#opcion">Alquiler con Opción a Compra</a></li>
-            <li><a href="#vpo">VPO</a></li>
-            <li><a href="#agentes">Agentes</a></li>
-        </ul>
-    </nav>
+<nav>
+    <div class="logo-txt">DYNASTY <span>8</span></div>
+    <ul>
+        <li><a href="#propiedades">Propiedades</a></li>
+        <li><a href="#agentes">Agentes</a></li>
+    </ul>
+</nav>
 
-    <header class="hero">
-        <h1>Bienvenido a Dynasty 8</h1>
-        <p>Encuentra tu próximo hogar con nosotros</p>
-    </header>
+<header class="hero">
+    <h1 id="main-title">Dynasty 8</h1>
+    <p id="main-subtitle">Cargando información...</p>
+</header>
 
-    <section id="venta" class="container">
-        <h2 class="section-title">Casas en Venta</h2>
-        <div class="grid-propiedades">
-            <div class="card">
-                <div class="card-img">Foto de Propiedad</div>
-                <div class="card-info">
-                    <span class="tag">VENTA</span>
-                    <h3>Chalet de Lujo</h3>
-                    <p>Ubicación Premium - 450.000€</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">Foto de Propiedad</div>
-                <div class="card-info">
-                    <span class="tag">VENTA</span>
-                    <h3>Apartamento Céntrico</h3>
-                    <p>Zona Histórica - 120.000€</p>
-                </div>
+<section class="container" id="propiedades">
+    <h2>Catálogo Inmobiliario</h2>
+    <div class="grid" id="grid-propiedades"></div>
+
+    <h2 id="agentes">Nuestros Agentes</h2>
+    <div class="grid" id="grid-agentes"></div>
+</section>
+
+<a href="#" id="discord-link" class="btn-discord" target="_blank">👾 Entrar al Discord</a>
+
+<footer>
+    <p>&copy; 2026 Dynasty 8 - Todos los derechos reservados</p>
+</footer>
+
+<script>
+// ==========================================
+//   CENTRAL DE CONTROL (EDITA AQUÍ ABAJO)
+// ==========================================
+
+const CONFIG = {
+    tituloPrincipal: "Dynasty 8 Inmobiliaria",
+    subtitulo: "Venta, Alquiler, Opción a Compra y VPO",
+    enlaceDiscord: "https://discord.gg/TU_INVITACION", // <--- TU LINK AQUÍ
+};
+
+const AGENTES = [
+    { nombre: "Chase Walton", cargo: "CEO de Dynasty 8" },
+    { nombre: "Agente Nombre 2", cargo: "Gestión de Alquileres" },
+    { nombre: "Agente Nombre 3", cargo: "Asesor VPO" }
+];
+
+const PROPIEDADES = [
+    {
+        titulo: "Mansión Lujosa",
+        tipo: "VENTA",
+        precio: "1.500.000 €",
+        foto: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=500"
+    },
+    {
+        titulo: "Apartamento Moderno",
+        tipo: "ALQUILER",
+        precio: "1.200 €/mes",
+        foto: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500"
+    },
+    {
+        titulo: "Casa con Opción a Compra",
+        tipo: "ALQUILER + OPCIÓN",
+        precio: "900 €/mes",
+        foto: "https://images.unsplash.com/photo-1580587767073-45237f06222b?w=500"
+    },
+    {
+        titulo: "Piso Planta Baja VPO",
+        tipo: "VPO",
+        precio: "140.000 €",
+        foto: "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=500"
+    }
+];
+
+// ==========================================
+//   LÓGICA AUTOMÁTICA (NO TOCAR)
+// ==========================================
+
+document.getElementById('main-title').innerText = CONFIG.tituloPrincipal;
+document.getElementById('main-subtitle').innerText = CONFIG.subtitulo;
+document.getElementById('discord-link').href = CONFIG.enlaceDiscord;
+
+const gridProp = document.getElementById('grid-propiedades');
+PROPIEDADES.forEach(p => {
+    gridProp.innerHTML += `
+        <div class="card">
+            <img src="${p.foto}" alt="${p.titulo}">
+            <div class="card-body">
+                <span class="tag">${p.tipo}</span>
+                <h3 style="margin-top:10px">${p.titulo}</h3>
+                <p class="precio">${p.precio}</p>
+                <a href="${CONFIG.enlaceDiscord}" target="_blank" style="color:var(--discord); text-decoration:none; font-size:0.8rem; font-weight:bold;">MÁS INFO EN DISCORD →</a>
             </div>
         </div>
-    </section>
+    `;
+});
 
-    <section id="vpo" class="container" style="background-color: #f9f9f9;">
-        <h2 class="section-title">Viviendas VPO</h2>
-        <div class="grid-propiedades">
-            <div class="card">
-                <div class="card-img">Foto VPO</div>
-                <div class="card-info">
-                    <span class="tag">VPO</span>
-                    <h3>Promoción Nueva</h3>
-                    <p>Consulta requisitos de acceso</p>
-                </div>
-            </div>
+const gridAge = document.getElementById('grid-agentes');
+AGENTES.forEach(a => {
+    gridAge.innerHTML += `
+        <div class="agente-item">
+            <h3>${a.nombre}</h3>
+            <p style="color:#666">${a.cargo}</p>
         </div>
-    </section>
-
-    <section id="agentes" class="agentes-section">
-        <h2 class="section-title">Nuestros Agentes</h2>
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-            <div class="agente-card">
-                <strong>Agente 1</strong>
-                <p>Especialista en Ventas</p>
-            </div>
-            <div class="agente-card">
-                <strong>Agente 2</strong>
-                <p>Especialista en Alquiler</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Dynasty 8 Inmobiliaria. Todos los derechos reservados.</p>
-    </footer>
-
+    `;
+});
+</script>
 </body>
 </html>
