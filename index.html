@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynasty 8 | Inmobiliaria Profesional</title>
+    <style>
+        /* Estilos basados en tu logo */
+        :root {
+            --dorado: #d4bc3b; /* El tono de tu logo */
+            --negro: #000000;
+            --blanco: #ffffff;
+            --gris-suave: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--negro);
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--negro);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--dorado);
+        }
+
+        .logo {
+            color: var(--blanco);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--dorado); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li { margin-left: 20px; }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--dorado); }
+
+        /* Hero / Portada */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--blanco);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--dorado); }
+
+        /* Secciones de Propiedades */
+        .container {
+            padding: 50px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--dorado);
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        .grid-propiedades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .card-img {
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .card-info { padding: 15px; }
+        .tag {
+            background: var(--dorado);
+            color: black;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* Agentes */
+        .agentes-section { background-color: var(--gris-suave); padding: 50px 5%; }
+        
+        .agente-card {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border: 3px solid var(--dorado);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        footer {
+            background: var(--negro);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DYNASTY <span>8</span></div>
+        <ul>
+            <li><a href="#venta">Venta</a></li>
+            <li><a href="#alquiler">Alquiler</a></li>
+            <li><a href="#opcion">Alquiler con Opción a Compra</a></li>
+            <li><a href="#vpo">VPO</a></li>
+            <li><a href="#agentes">Agentes</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Bienvenido a Dynasty 8</h1>
+        <p>Encuentra tu próximo hogar con nosotros</p>
+    </header>
+
+    <section id="venta" class="container">
+        <h2 class="section-title">Casas en Venta</h2>
+        <div class="grid-propiedades">
+            <div class="card">
+                <div class="card-img">Foto de Propiedad</div>
+                <div class="card-info">
+                    <span class="tag">VENTA</span>
+                    <h3>Chalet de Lujo</h3>
+                    <p>Ubicación Premium - 450.000€</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">Foto de Propiedad</div>
+                <div class="card-info">
+                    <span class="tag">VENTA</span>
+                    <h3>Apartamento Céntrico</h3>
+                    <p>Zona Histórica - 120.000€</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vpo" class="container" style="background-color: #f9f9f9;">
+        <h2 class="section-title">Viviendas VPO</h2>
+        <div class="grid-propiedades">
+            <div class="card">
+                <div class="card-img">Foto VPO</div>
+                <div class="card-info">
+                    <span class="tag">VPO</span>
+                    <h3>Promoción Nueva</h3>
+                    <p>Consulta requisitos de acceso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agentes" class="agentes-section">
+        <h2 class="section-title">Nuestros Agentes</h2>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+            <div class="agente-card">
+                <strong>Agente 1</strong>
+                <p>Especialista en Ventas</p>
+            </div>
+            <div class="agente-card">
+                <strong>Agente 2</strong>
+                <p>Especialista en Alquiler</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Dynasty 8 Inmobiliaria. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
