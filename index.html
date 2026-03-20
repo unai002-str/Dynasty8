@@ -3,170 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynasty 8 | Inmobiliaria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Dynasty 8 | Chase Walton Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --dorado: #d4bc3b; --negro: #0b0b0b; --blanco: #ffffff; --discord: #5865F2; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
-        body { background: #fdfdfd; color: var(--negro); }
+        :root {
+            --dorado: #d4bc3b;
+            --negro-mate: #121212;
+            --blanco-puro: #ffffff;
+            --discord-blurple: #5865F2;
+        }
 
-        /* Navegación */
-        nav { background: var(--negro); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--dorado); }
-        .logo { color: white; font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 1px; }
-        .logo span { color: var(--dorado); }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--blanco-puro); color: var(--negro-mate); scroll-behavior: smooth; }
+
+        /* Navegación Estilo Corporativo */
+        nav {
+            background: var(--negro-mate);
+            border-bottom: 4px solid var(--dorado);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-txt { font-family: 'Oswald', sans-serif; color: white; font-size: 1.8rem; letter-spacing: 2px; }
+        .logo-txt span { color: var(--dorado); }
+        
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         nav ul li a:hover { color: var(--dorado); }
 
-        /* Portada */
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400'); background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { color: var(--dorado); font-size: 1.2rem; font-weight: 300; letter-spacing: 1px; }
+        /* Hero: Visión Chase Walton */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1470');
+            background-size: cover;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; margin-bottom: 10px; }
+        .hero p { color: var(--dorado); font-size: 1.1rem; letter-spacing: 3px; font-weight: 300; text-transform: uppercase; }
 
-        /* Contenedor Principal */
-        .container { padding: 60px 5%; max-width: 1200px; margin: auto; }
-        .section-title { text-align: center; margin-bottom: 50px; font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; position: relative; padding-bottom: 15px; }
-        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--dorado); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        /* Sección de Pilares (Tu Presentación) */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 5%; background: #f9f9f9; margin-top: -50px; width: 90%; margin-left: auto; margin-right: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .feature-item { text-align: center; padding: 20px; }
+        .feature-item h3 { font-family: 'Oswald', sans-serif; color: var(--negro-mate); margin-bottom: 10px; font-size: 1.2rem; }
+        .feature-item p { font-size: 0.85rem; color: #666; }
 
-        /* Cuadrícula de Casas */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.4s; border: 1px solid #eee; position: relative; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-body { padding: 20px; }
-        .tipo-tag { display: inline-block; background: var(--negro); color: var(--dorado); padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; margin-bottom: 10px; }
-        .card h3 { margin-bottom: 8px; font-size: 1.3rem; }
-        .precio { color: var(--dorado); font-size: 1.5rem; font-weight: bold; font-family: 'Oswald', sans-serif; }
-        .vpo-badge { position: absolute; top: 15px; left: 15px; background: #e74c3c; color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 20px; }
+        /* Catálogo Inmobiliario */
+        .container { padding: 60px 5%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-transform: uppercase; }
+        .section-header .line { width: 60px; height: 4px; background: var(--dorado); margin: 15px auto; }
 
-        /* Agentes */
-        .agentes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .agente-card { background: var(--negro); color: white; padding: 30px; border-radius: 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .agente-card h4 { font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: var(--dorado); }
-        .agente-card p { font-size: 0.9rem; margin-top: 5px; opacity: 0.8; }
+        .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .property-card { border: 1px solid #eee; border-radius: 15px; overflow: hidden; background: white; transition: 0.4s; position: relative; }
+        .property-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        .property-img { width: 100%; height: 240px; object-fit: cover; }
+        .vpo-tag { position: absolute; top: 15px; right: 15px; background: var(--dorado); color: black; padding: 6px 15px; font-weight: bold; border-radius: 5px; font-size: 0.75rem; font-family: 'Oswald', sans-serif; }
+        
+        .property-info { padding: 25px; }
+        .property-info .status { font-size: 0.7rem; font-weight: bold; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        .property-info h3 { margin: 5px 0 15px; font-size: 1.4rem; font-family: 'Oswald', sans-serif; }
+        .property-info .price { font-size: 1.6rem; color: var(--dorado); font-weight: bold; font-family: 'Oswald', sans-serif; border-top: 1px solid #eee; padding-top: 15px; }
 
-        /* Discord Flotante */
-        .btn-discord { position: fixed; bottom: 30px; right: 30px; background: var(--discord); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4); z-index: 2000; transition: 0.3s; }
-        .btn-discord:hover { background: #4752c4; transform: scale(1.05); }
+        /* Botón de Ticket System (Discord) */
+        .ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--discord-blurple); color: white; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3); z-index: 2000; transition: 0.3s; font-size: 0.9rem; }
+        .ticket-btn:hover { background: #4752c4; transform: scale(1.05); }
 
-        footer { background: var(--negro); color: #666; text-align: center; padding: 40px; font-size: 0.8rem; margin-top: 40px; }
+        footer { background: var(--negro-mate); color: #444; text-align: center; padding: 50px; border-top: 5px solid var(--dorado); margin-top: 50px; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo" id="header-logo">DYNASTY <span>8</span></div>
-    <ul>
-        <li><a href="#propiedades">Propiedades</a></li>
-        <li><a href="#agentes">Agentes</a></li>
-        <li><a href="#discord">Contacto</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div class="logo-txt">DYNASTY <span>8</span></div>
+        <ul>
+            <li><a href="#vision">Visión</a></li>
+            <li><a href="#propiedades">Propiedades</a></li>
+            <li><a href="#vpo">Programa Social</a></li>
+            <li><a href="#contacto">Ticket System</a></li>
+        </ul>
+    </nav>
 
-<header class="hero">
-    <h1 id="txt-titulo">Dynasty 8</h1>
-    <p id="txt-subtitulo">Tu inmobiliaria de confianza</p>
-</header>
+    <header class="hero">
+        <h1 id="dyn-name">Dynasty 8</h1>
+        <p id="dyn-slogan">Ética · Transparencia · Profesionalismo</p>
+    </header>
 
-<div class="container" id="propiedades">
-    <h2 class="section-title">Propiedades Disponibles</h2>
-    <div class="grid" id="contenedor-casas"></div>
+    <section class="features" id="vision">
+        <div class="feature-item">
+            <h3>TASACIÓN DINÁMICA</h3>
+            <p>Valoraciones reales basadas en mercado, ubicación y estado de reforma.</p>
+        </div>
+        <div class="feature-item" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+            <h3>PROGRAMA SOCIAL</h3>
+            <p>Acceso prioritario a viviendas VPO para nuevos ciudadanos de la ciudad.</p>
+        </div>
+        <div class="feature-item">
+            <h3>ÉTICA CORPORATIVA</h3>
+            <p>Tolerancia cero a la corrupción y protocolos de transparencia total.</p>
+        </div>
+    </section>
 
-    <h2 class="section-title" id="agentes">Nuestro Equipo</h2>
-    <div class="agentes-grid" id="contenedor-agentes"></div>
-</div>
-
-<a href="#" id="link-discord" class="btn-discord" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="24" alt="Discord">
-    CONSULTAR EN DISCORD
-</a>
-
-<footer>
-    <p>&copy; 2026 Dynasty 8 Real Estate. Todos los derechos reservados.</p>
-</footer>
-
-<script>
-/* ===========================================================
-   PANEL DE CONTROL (AQUÍ ES DONDE TÚ CAMBIAS TODO)
-   ===========================================================
-*/
-
-const MI_CONFIGURACION = {
-    tituloWeb: "DYNASTY 8",
-    fraseBienvenida: "VENTA · ALQUILER · OPCIÓN COMPRA · VPO",
-    invitacionDiscord: "https://discord.gg/TU_LINK" // Pega aquí tu link de Discord
-};
-
-const MIS_AGENTES = [
-    { nombre: "CHASE WALTON", cargo: "Director Dynasty 8" },
-    { nombre: "ELENA SÁNCHEZ", cargo: "Gestión de VPO" },
-    { nombre: "JUAN PEÑA", cargo: "Especialista en Alquileres" }
-];
-
-const MIS_CASAS = [
-    {
-        nombre: "Chalet con Piscina",
-        estado: "VENTA", 
-        precio: "450.000 €",
-        foto: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500",
-        esVPO: false
-    },
-    {
-        nombre: "Apartamento Centro",
-        estado: "ALQUILER",
-        precio: "800 €/mes",
-        foto: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500",
-        esVPO: false
-    },
-    {
-        nombre: "Casa Unifamiliar",
-        estado: "ALQUILER OPC. COMPRA",
-        precio: "950 €/mes",
-        foto: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500",
-        esVPO: false
-    },
-    {
-        nombre: "Piso Planta 2 Altabix",
-        estado: "VPO",
-        precio: "125.000 €",
-        foto: "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=500",
-        esVPO: true
-    }
-];
-
-/* ===========================================================
-   LÓGICA AUTOMÁTICA (NO TOCAR SI NO SABES HTML/JS)
-   ===========================================================
-*/
-
-document.getElementById('txt-titulo').innerText = MI_CONFIGURACION.tituloWeb;
-document.getElementById('txt-subtitulo').innerText = MI_CONFIGURACION.fraseBienvenida;
-document.getElementById('link-discord').href = MI_CONFIGURACION.invitacionDiscord;
-
-const cCasas = document.getElementById('contenedor-casas');
-MIS_CASAS.forEach(casa => {
-    cCasas.innerHTML += `
-        <div class="card">
-            ${casa.esVPO ? '<div class="vpo-badge">VPO</div>' : ''}
-            <img src="${casa.foto}" alt="${casa.nombre}">
-            <div class="card-body">
-                <span class="tipo-tag">${casa.estado}</span>
-                <h3>${casa.nombre}</h3>
-                <p class="precio">${casa.precio}</p>
+    <main class="container" id="propiedades">
+        <div class="section-header">
+            <h2>Inventario de Propiedades</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="property-grid" id="grid-inmuebles">
             </div>
-        </div>
-    `;
-});
+    </main>
 
-const cAgentes = document.getElementById('contenedor-agentes');
-MIS_AGENTES.forEach(agente => {
-    cAgentes.innerHTML += `
-        <div class="agente-card">
-            <h4>${agente.nombre}</h4>
-            <p>${agente.cargo}</p>
-        </div>
-    `;
-});
-</script>
+    <a href="#" id="discord-link" class="ticket-btn" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="25" alt="Discord">
+        ABRIR TICKET DE ASISTENCIA
+    </a>
+
+    <footer>
+        <p>CHASE WALTON | PROYECTO DYNASTY 8</p>
+        <p style="margin-top:10px; font-size: 0.7rem;">&copy; 2026 LOS SANTOS REAL ESTATE SOLUTIONS</p>
+    </footer>
+
+    <script>
+        /* PANEL DE CONFIGURACIÓN PERSONALIZABLE
+           Edita los datos aquí para actualizar tu web al instante.
+        */
+
+        const INFO_GENERAL = {
+            nombre: "DYNASTY 8",
+            lema: "ASESORÍA INMOBILIARIA INTEGRAL",
+            discordUrl: "https://discord.gg/TU_LINK" // Pega aquí tu invitación
+        };
+
+        const PROPIEDADES = [
+            {
+                titulo: "Mansión en Rockford Hills",
+                tipo: "VENTA",
+                precio: "2.450.000 €",
+                imagen: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
+                vpo: false
+            },
+            {
+                titulo: "Apartamento Del Perro Pier",
+                tipo: "ALQUILER",
+                precio: "2.100 € / mes",
+                imagen: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600",
+                vpo: false
+            },
+            {
+                titulo: "Vivienda Protegida Sur",
+                tipo: "VPO",
+                precio: "115.000 €",
+                imagen: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600",
+                vpo: true
+            }
+        ];
+
+        /* LÓGICA DE CARGA (NO TOCAR) */
+        document.getElementById('dyn-name').innerText = INFO_GENERAL.nombre;
+        document.getElementById('dyn-slogan').innerText = INFO_GENERAL.lema;
+        document.getElementById('discord-link').href = INFO_GENERAL.discordUrl;
+
+        const grid = document.getElementById('grid-inmuebles');
+        PROPIEDADES.forEach(p => {
+            grid.innerHTML += `
+                <div class="property-card">
+                    ${p.vpo ? '<div class="vpo-tag">PLAN VPO</div>' : ''}
+                    <img src="${p.imagen}" class="property-img">
+                    <div class="property-info">
+                        <span class="status">${p.tipo}</span>
+                        <h3>${p.titulo}</h3>
+                        <p class="price">${p.precio}</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
 </body>
 </html>
